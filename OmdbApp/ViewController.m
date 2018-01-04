@@ -31,9 +31,14 @@
     
     if([textButtonText isEqualToString:@""]){
         NSLog(@"Empty String given");
-
     }
-    NSLog(@"Search Button pressed %@",self.searchBoxContents.text);
+    else{
+        textButtonText = [textButtonText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+        NSMutableArray *textButtonTextArray = [[textButtonText componentsSeparatedByString:@" "] mutableCopy];
+        [textButtonTextArray removeObject:@""];
+        textButtonText = [textButtonTextArray componentsJoinedByString:@" "];
+        NSLog(@"Search Button pressed %@",textButtonText);
+    }
 }
 
 @end
