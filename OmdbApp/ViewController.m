@@ -26,4 +26,14 @@
 }
 
 
+- (IBAction)searchButtonPressed:(id)sender {
+    NSString *textButtonText = self.searchBoxContents.text;
+    
+    if([textButtonText isEqualToString:@""]){
+        NSLog(@"Empty String given");
+
+    }
+    NSLog(@"Search Button pressed %@",self.searchBoxContents.text);
+}
+
 @end
