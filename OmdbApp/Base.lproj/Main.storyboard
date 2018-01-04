@@ -14,14 +14,17 @@
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mg0-hL-qkK">
-                                <rect key="frame" x="59" y="190" width="296" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mg0-hL-qkK" userLabel="OMDB Heading">
+                                <rect key="frame" x="59" y="250.66666666666663" width="296" height="67"/>
                                 <color key="backgroundColor" red="0.15289559960365295" green="0.13899680972099304" blue="0.23013949394226074" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="296" id="8am-BE-Ywk"/>
+                                    <constraint firstAttribute="height" constant="67" id="IhN-OG-OTq"/>
+                                </constraints>
                                 <attributedString key="attributedText">
                                     <fragment content="OMDB">
                                         <attributes>
@@ -33,20 +36,13 @@
                                 </attributedString>
                                 <color key="highlightedColor" white="1" alpha="0.0" colorSpace="deviceWhite"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Search Movie" textAlignment="natural" minimumFontSize="29" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-2R-tZ8">
-                                <rect key="frame" x="59" y="289" width="296" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.47014126712328769" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="0.58037243150684936" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OE0-sI-JuM">
-                                <rect key="frame" x="59" y="346" width="296" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OE0-sI-JuM">
+                                <rect key="frame" x="60.666666666666657" y="410.66666666666669" width="294" height="35"/>
                                 <color key="backgroundColor" red="1" green="0.51372549019607838" blue="0.33725490196078434" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="TSw-SL-2sG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Chalkboard" family="Chalkboard" pointSize="17"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="SEARCH"/>
@@ -54,8 +50,29 @@
                                     <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AOu-ku-vYD"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Search Movie" textAlignment="natural" minimumFontSize="29" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-2R-tZ8">
+                                <rect key="frame" x="60" y="350.66666666666669" width="294" height="35"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.47014126712328769" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="pug-Au-Fqf"/>
+                                </constraints>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="0.58037243150684936" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.15294117647058825" green="0.14117647058823529" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="eqt-2R-tZ8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="C55-hB-kzN"/>
+                            <constraint firstItem="eqt-2R-tZ8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="Ela-YR-sSX"/>
+                            <constraint firstItem="OE0-sI-JuM" firstAttribute="bottom" secondItem="eqt-2R-tZ8" secondAttribute="bottom" constant="60" id="YGk-Nf-uut"/>
+                            <constraint firstItem="Mg0-hL-qkK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YjB-cN-oyd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eqt-2R-tZ8" secondAttribute="trailing" constant="60" id="jvZ-lq-qdE"/>
+                            <constraint firstItem="OE0-sI-JuM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="mZL-Ne-e8m"/>
+                            <constraint firstItem="OE0-sI-JuM" firstAttribute="width" secondItem="eqt-2R-tZ8" secondAttribute="width" id="tHb-pd-O6v"/>
+                            <constraint firstItem="eqt-2R-tZ8" firstAttribute="top" secondItem="Mg0-hL-qkK" secondAttribute="top" constant="100" id="wXM-oq-EA3"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
