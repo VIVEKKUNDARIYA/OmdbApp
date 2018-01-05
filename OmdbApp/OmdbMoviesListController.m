@@ -7,6 +7,8 @@
 //
 
 #import "OmdbMoviesListController.h"
+#import "Movie.h"
+
 
 @interface OmdbMoviesListController ()
 
@@ -18,10 +20,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationBarHead.title = self.navigationTitle;
-    self.names = [NSMutableArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast",nil];
-    self.years = [NSMutableArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast",nil];
     self.moviesListTableView.delegate = self;
     self.moviesListTableView.dataSource = self;
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,23 +50,29 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"movie";
+    static NSString *simpleTableIdentifier = @"mov";
     Movie *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 
     if (cell == nil) {
         cell = (Movie *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     NSString *movieYearStr = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
-    cell.movieYear.text = movieYearStr;
+    [cell.movieYear setText: movieYearStr];
+    [cell.movieTitle setText: @"Test MSg"];
+    
     
     return cell;
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 4;
 }
-
-
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 180.0;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 180.0;
+}
 @end
 
 
