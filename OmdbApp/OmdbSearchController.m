@@ -8,6 +8,7 @@
 
 #import "OmdbSearchController.h"
 #import "OmdbMoviesListController.h"
+#import "OmdbNetworkManager.h"
 
 @interface OmdbSearchController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [OmdbNetworkManager doGet:@"http://www.omdbapi.com/?apikey=d062a57d&s=harry"];
 }
 
 

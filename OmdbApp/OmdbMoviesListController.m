@@ -56,12 +56,20 @@
     if (cell == nil) {
         cell = (Movie *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    NSString *movieYearStr = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+    /*NS    String *movieYearStr = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
     [cell.movieYear setText: movieYearStr];
     [cell.movieTitle setText: @"Test MSg"];
-    
+    */
     
     return cell;
+}
+
+- (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath{
+    return NO;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSLog(@"Selected!");
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -12,6 +12,7 @@
 		B24872202BA2BB2710FB30ED /* libPods-OmdbApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A246A7D3C5BFBBF37AA5924 /* libPods-OmdbApp.a */; };
 		E22D7F4C1FFF474B009D25CA /* OmdbMoviesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22D7F4B1FFF474B009D25CA /* OmdbMoviesListController.m */; };
 		E2C26A571FFF9FE800BFF400 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C26A561FFF9FE800BFF400 /* Movie.m */; };
+		E2C26A5A1FFFBB2900BFF400 /* OmdbNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C26A591FFFBB2900BFF400 /* OmdbNetworkManager.m */; };
 		E2CBAE5D1FFD004A004AB21C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAE5C1FFD004A004AB21C /* AppDelegate.m */; };
 		E2CBAE601FFD004A004AB21C /* OmdbSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAE5F1FFD004A004AB21C /* OmdbSearchController.m */; };
 		E2CBAE631FFD004A004AB21C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2CBAE611FFD004A004AB21C /* Main.storyboard */; };
@@ -52,6 +53,8 @@
 		E22D7F4B1FFF474B009D25CA /* OmdbMoviesListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmdbMoviesListController.m; sourceTree = "<group>"; };
 		E2C26A551FFF9FE800BFF400 /* Movie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		E2C26A561FFF9FE800BFF400 /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
+		E2C26A581FFFBB2900BFF400 /* OmdbNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbNetworkManager.h; sourceTree = "<group>"; };
+		E2C26A591FFFBB2900BFF400 /* OmdbNetworkManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmdbNetworkManager.m; sourceTree = "<group>"; };
 		E2CBAE581FFD004A004AB21C /* OmdbApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmdbApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CBAE5B1FFD004A004AB21C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2CBAE5C1FFD004A004AB21C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -147,6 +150,8 @@
 				E22D7F4B1FFF474B009D25CA /* OmdbMoviesListController.m */,
 				E2C26A551FFF9FE800BFF400 /* Movie.h */,
 				E2C26A561FFF9FE800BFF400 /* Movie.m */,
+				E2C26A581FFFBB2900BFF400 /* OmdbNetworkManager.h */,
+				E2C26A591FFFBB2900BFF400 /* OmdbNetworkManager.m */,
 			);
 			path = OmdbApp;
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 			files = (
 				E2CBAE601FFD004A004AB21C /* OmdbSearchController.m in Sources */,
 				E2CBAE6B1FFD004A004AB21C /* main.m in Sources */,
+				E2C26A5A1FFFBB2900BFF400 /* OmdbNetworkManager.m in Sources */,
 				E2C26A571FFF9FE800BFF400 /* Movie.m in Sources */,
 				E22D7F4C1FFF474B009D25CA /* OmdbMoviesListController.m in Sources */,
 				E2CBAE5D1FFD004A004AB21C /* AppDelegate.m in Sources */,
