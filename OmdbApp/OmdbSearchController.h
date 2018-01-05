@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  OmdbSearchController
 //  OmdbApp
 //
 //  Created by vivek on 03/01/18.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface OmdbSearchController : UIViewController
 - (IBAction)searchButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *searchBoxContents;
 

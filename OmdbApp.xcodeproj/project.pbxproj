@@ -10,8 +10,9 @@
 		1F88E4937ED6D1A6CA8ED9C5 /* libPods-OmdbAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E456194D8310F833616DE547 /* libPods-OmdbAppTests.a */; };
 		AC6F090153CB3E1C3D91821F /* libPods-OmdbAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC968D9A075DB42211DCA0A0 /* libPods-OmdbAppUITests.a */; };
 		B24872202BA2BB2710FB30ED /* libPods-OmdbApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A246A7D3C5BFBBF37AA5924 /* libPods-OmdbApp.a */; };
+		E22D7F4C1FFF474B009D25CA /* OmdbMoviesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22D7F4B1FFF474B009D25CA /* OmdbMoviesListController.m */; };
 		E2CBAE5D1FFD004A004AB21C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAE5C1FFD004A004AB21C /* AppDelegate.m */; };
-		E2CBAE601FFD004A004AB21C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAE5F1FFD004A004AB21C /* ViewController.m */; };
+		E2CBAE601FFD004A004AB21C /* OmdbSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAE5F1FFD004A004AB21C /* OmdbSearchController.m */; };
 		E2CBAE631FFD004A004AB21C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2CBAE611FFD004A004AB21C /* Main.storyboard */; };
 		E2CBAE651FFD004A004AB21C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2CBAE641FFD004A004AB21C /* Assets.xcassets */; };
 		E2CBAE681FFD004A004AB21C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2CBAE661FFD004A004AB21C /* LaunchScreen.storyboard */; };
@@ -46,11 +47,13 @@
 		AE8BF7EAECB9A08425981601 /* Pods-OmdbAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmdbAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmdbAppUITests/Pods-OmdbAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3CAAE6A97F84537799D1199 /* Pods-OmdbAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmdbAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmdbAppUITests/Pods-OmdbAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BC968D9A075DB42211DCA0A0 /* libPods-OmdbAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OmdbAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E22D7F4A1FFF474B009D25CA /* OmdbMoviesListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbMoviesListController.h; sourceTree = "<group>"; };
+		E22D7F4B1FFF474B009D25CA /* OmdbMoviesListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmdbMoviesListController.m; sourceTree = "<group>"; };
 		E2CBAE581FFD004A004AB21C /* OmdbApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmdbApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2CBAE5B1FFD004A004AB21C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E2CBAE5C1FFD004A004AB21C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E2CBAE5E1FFD004A004AB21C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E2CBAE5F1FFD004A004AB21C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E2CBAE5E1FFD004A004AB21C /* OmdbSearchController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbSearchController.h; sourceTree = "<group>"; };
+		E2CBAE5F1FFD004A004AB21C /* OmdbSearchController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmdbSearchController.m; sourceTree = "<group>"; };
 		E2CBAE621FFD004A004AB21C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E2CBAE641FFD004A004AB21C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2CBAE671FFD004A004AB21C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -130,13 +133,15 @@
 			children = (
 				E2CBAE5B1FFD004A004AB21C /* AppDelegate.h */,
 				E2CBAE5C1FFD004A004AB21C /* AppDelegate.m */,
-				E2CBAE5E1FFD004A004AB21C /* ViewController.h */,
-				E2CBAE5F1FFD004A004AB21C /* ViewController.m */,
+				E2CBAE5E1FFD004A004AB21C /* OmdbSearchController.h */,
+				E2CBAE5F1FFD004A004AB21C /* OmdbSearchController.m */,
 				E2CBAE611FFD004A004AB21C /* Main.storyboard */,
 				E2CBAE641FFD004A004AB21C /* Assets.xcassets */,
 				E2CBAE661FFD004A004AB21C /* LaunchScreen.storyboard */,
 				E2CBAE691FFD004A004AB21C /* Info.plist */,
 				E2CBAE6A1FFD004A004AB21C /* main.m */,
+				E22D7F4A1FFF474B009D25CA /* OmdbMoviesListController.h */,
+				E22D7F4B1FFF474B009D25CA /* OmdbMoviesListController.m */,
 			);
 			path = OmdbApp;
 			sourceTree = "<group>";
@@ -461,8 +466,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2CBAE601FFD004A004AB21C /* ViewController.m in Sources */,
+				E2CBAE601FFD004A004AB21C /* OmdbSearchController.m in Sources */,
 				E2CBAE6B1FFD004A004AB21C /* main.m in Sources */,
+				E22D7F4C1FFF474B009D25CA /* OmdbMoviesListController.m in Sources */,
 				E2CBAE5D1FFD004A004AB21C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

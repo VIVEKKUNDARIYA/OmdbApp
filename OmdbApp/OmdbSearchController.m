@@ -1,18 +1,19 @@
 //
-//  ViewController.m
+//  OmdbSearchController.m
 //  OmdbApp
 //
 //  Created by vivek on 03/01/18.
 //  Copyright © 2018 vivek. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "OmdbSearchController.h"
+#import "OmdbMoviesListController.h"
 
-@interface ViewController ()
+@interface OmdbSearchController ()
 
 @end
 
-@implementation ViewController
+@implementation OmdbSearchController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -38,6 +39,14 @@
         [textButtonTextArray removeObject:@""];
         textButtonText = [textButtonTextArray componentsJoinedByString:@" "];
         NSLog(@"Search Button pressed %@",textButtonText);
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        
+        OmdbMoviesListController *secondVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbMoviesListController"];
+        
+        secondVc.navigationTitle =textButtonText;
+        
+        [self presentViewController:secondVc animated:YES completion:nil];
     }
 }
 
