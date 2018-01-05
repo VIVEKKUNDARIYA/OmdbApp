@@ -17,7 +17,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-   self.navigationBarHead.title = self.navigationTitle;
+    self.navigationBarHead.title = self.navigationTitle;
+    self.names = [NSMutableArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast",nil];
+    self.years = [NSMutableArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast",nil];
+    self.moviesListTableView.delegate = self;
+    self.moviesListTableView.dataSource = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,4 +44,27 @@
     id secondVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbSearchController"];
     [self presentViewController:secondVc animated:YES completion:nil];
 }
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"movie";
+    Movie *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+
+    if (cell == nil) {
+        cell = (Movie *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    NSString *movieYearStr = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+    cell.movieYear.text = movieYearStr;
+    
+    return cell;
+}
+
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 1;
+}
+
+
 @end
+
+
