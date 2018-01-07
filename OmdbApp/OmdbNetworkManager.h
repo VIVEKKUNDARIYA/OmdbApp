@@ -10,6 +10,6 @@
 
 @interface OmdbNetworkManager : NSObject
 
-+ (void)doGet:(NSString *)url;
++ (void)doGet:(NSString *)url withResponseCallback:(void (^)(NSArray *))responseHandler;
 
 @end

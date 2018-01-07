@@ -8,7 +8,7 @@
 
 #import "OmdbMoviesListController.h"
 #import "Movie.h"
-
+#import "OmdbNetworkManager.h"
 
 @interface OmdbMoviesListController ()
 
@@ -20,8 +20,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.navigationBarHead.title = self.navigationTitle;
+    
     self.moviesListTableView.delegate = self;
     self.moviesListTableView.dataSource = self;
+    //__block NSMutableArray *movieFinalList = [[NSMutableArray alloc] init];
+    [OmdbNetworkManager doGet:@"https://www.omdbapi.com/?apikey=d062a57d&s=harry" withResponseCallback: ^(NSArray *movieList){
+        NSLog(@"%@",movieList);
+        self.movieFinalList = movieList;
+        //return movieList;
+        NSLog(@"DONE");
+    }];
     
     
 }
@@ -56,10 +64,10 @@
     if (cell == nil) {
         cell = (Movie *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    /*NS    String *movieYearStr = [NSString stringWithFormat:@"%ld", (long)indexPath.row];
+    NSString *movieYearStr = _movieFinalList[indexPath.row][@"Title"];
     [cell.movieYear setText: movieYearStr];
-    [cell.movieTitle setText: @"Test MSg"];
-    */
+    [cell.movieTitle setText: movieYearStr];
+    
     
     return cell;
 }
@@ -75,12 +83,13 @@
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 4;
 }
+/*
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 180.0;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 180.0;
-}
+}*/
 @end
 
 

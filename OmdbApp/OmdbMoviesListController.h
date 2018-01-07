@@ -14,6 +14,6 @@
 @property (weak, nonatomic) IBOutlet UINavigationItem *navigationBarHead;
 @property (strong,nonatomic) NSString *navigationTitle;
 @property (weak, nonatomic) IBOutlet UITableView *moviesListTableView;
-
+@property (strong,nonatomic) NSArray *movieFinalList;
 @end
 
