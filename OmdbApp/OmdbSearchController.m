@@ -8,7 +8,7 @@
 
 #import "OmdbSearchController.h"
 #import "OmdbMoviesListController.h"
-
+#import "OmdbNetworkManager.h"
 @interface OmdbSearchController ()
 
 @end
@@ -41,13 +41,31 @@
         textButtonText = [textButtonTextArray componentsJoinedByString:@" "];
         NSLog(@"Search Button pressed %@",textButtonText);
         
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         
-        OmdbMoviesListController *secondVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbMoviesListController"];
+        NSMutableString *string = [NSMutableString stringWithString:@"https://www.omdbapi.com/?apikey=d062a57d&s="];
         
-        secondVc.navigationTitle =textButtonText;
+        [string appendString:textButtonText];
+        [OmdbNetworkManager doGet:string withResponseCallback: ^(NSArray *movieList){
+            NSLog(@"%@",movieList);
+            //return movieList;
+            if(movieList==nil)
+                return ;
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            
+            OmdbMoviesListController *secondVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbMoviesListController"];
+            
+            secondVc.navigationTitle =textButtonText;
+            secondVc.movieFinalList = movieList;
+            [self presentViewController:secondVc animated:YES completion:nil];
+            NSLog(@"DONE");
+        }];
         
-        [self presentViewController:secondVc animated:YES completion:nil];
+        
+        
+        
+        
+        
     }
 }
 

@@ -24,17 +24,6 @@
     self.moviesListTableView.delegate = self;
     self.moviesListTableView.dataSource = self;
     //__block NSMutableArray *movieFinalList = [[NSMutableArray alloc] init];
-    NSMutableString *string = [NSMutableString stringWithString:@"https://www.omdbapi.com/?apikey=d062a57d&s="];
-    
-    [string appendString:self.navigationTitle];
-    [OmdbNetworkManager doGet:string withResponseCallback: ^(NSArray *movieList){
-        NSLog(@"%@",movieList);
-        self.movieFinalList = movieList;
-        //return movieList;
-        
-        [self.moviesListTableView reloadData];
-        NSLog(@"DONE");
-    }];
     
 }
 
