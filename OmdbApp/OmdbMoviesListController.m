@@ -30,7 +30,7 @@
         //return movieList;
         NSLog(@"DONE");
     }];
-    
+    sleep(5);
     
 }
 
@@ -81,7 +81,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 4;
+    return [self.movieFinalList count];
 }
 /*
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
