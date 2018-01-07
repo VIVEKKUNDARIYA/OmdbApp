@@ -24,13 +24,17 @@
     self.moviesListTableView.delegate = self;
     self.moviesListTableView.dataSource = self;
     //__block NSMutableArray *movieFinalList = [[NSMutableArray alloc] init];
-    [OmdbNetworkManager doGet:@"https://www.omdbapi.com/?apikey=d062a57d&s=harry" withResponseCallback: ^(NSArray *movieList){
+    NSMutableString *string = [NSMutableString stringWithString:@"https://www.omdbapi.com/?apikey=d062a57d&s="];
+    
+    [string appendString:self.navigationTitle];
+    [OmdbNetworkManager doGet:string withResponseCallback: ^(NSArray *movieList){
         NSLog(@"%@",movieList);
         self.movieFinalList = movieList;
         //return movieList;
+        
+        [self.moviesListTableView reloadData];
         NSLog(@"DONE");
     }];
-    sleep(5);
     
 }
 
@@ -64,10 +68,15 @@
     if (cell == nil) {
         cell = (Movie *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    NSString *movieYearStr = _movieFinalList[indexPath.row][@"Title"];
-    [cell.movieYear setText: movieYearStr];
-    [cell.movieTitle setText: movieYearStr];
+    [cell.movieYear setText: self.movieFinalList[indexPath.row][@"Year"]];
+    [cell.movieTitle setText: self.movieFinalList[indexPath.row][@"Title"]];
     
+    
+    NSString *ImageURL = self.movieFinalList[indexPath.row][@"Poster"];
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]];
+   
+    cell.imageView.image = [UIImage imageWithData:imageData];
+    //[UIImage imageWithContentsOfURL : self.movieFinalList[indexPath.row][@"Poster"]];
     
     return cell;
 }
