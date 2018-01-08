@@ -11,6 +11,8 @@
 		AC6F090153CB3E1C3D91821F /* libPods-OmdbAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC968D9A075DB42211DCA0A0 /* libPods-OmdbAppUITests.a */; };
 		B24872202BA2BB2710FB30ED /* libPods-OmdbApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A246A7D3C5BFBBF37AA5924 /* libPods-OmdbApp.a */; };
 		E22D7F4C1FFF474B009D25CA /* OmdbMoviesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22D7F4B1FFF474B009D25CA /* OmdbMoviesListController.m */; };
+		E262D8EF20036A8B00519876 /* OmdbApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E262D8EE20036A8B00519876 /* OmdbApiManager.m */; };
+		E262D8F220036DFE00519876 /* OmdbUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E262D8F120036DFE00519876 /* OmdbUtils.m */; };
 		E2C26A571FFF9FE800BFF400 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C26A561FFF9FE800BFF400 /* Movie.m */; };
 		E2C26A5A1FFFBB2900BFF400 /* OmdbNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C26A591FFFBB2900BFF400 /* OmdbNetworkManager.m */; };
 		E2CBAE5D1FFD004A004AB21C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAE5C1FFD004A004AB21C /* AppDelegate.m */; };
@@ -51,6 +53,10 @@
 		BC968D9A075DB42211DCA0A0 /* libPods-OmdbAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OmdbAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E22D7F4A1FFF474B009D25CA /* OmdbMoviesListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbMoviesListController.h; sourceTree = "<group>"; };
 		E22D7F4B1FFF474B009D25CA /* OmdbMoviesListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmdbMoviesListController.m; sourceTree = "<group>"; };
+		E262D8ED20036A8B00519876 /* OmdbApiManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbApiManager.h; sourceTree = "<group>"; };
+		E262D8EE20036A8B00519876 /* OmdbApiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmdbApiManager.m; sourceTree = "<group>"; };
+		E262D8F020036DFE00519876 /* OmdbUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbUtils.h; sourceTree = "<group>"; };
+		E262D8F120036DFE00519876 /* OmdbUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmdbUtils.m; sourceTree = "<group>"; };
 		E2C26A551FFF9FE800BFF400 /* Movie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		E2C26A561FFF9FE800BFF400 /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		E2C26A581FFFBB2900BFF400 /* OmdbNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbNetworkManager.h; sourceTree = "<group>"; };
@@ -152,6 +158,10 @@
 				E2C26A561FFF9FE800BFF400 /* Movie.m */,
 				E2C26A581FFFBB2900BFF400 /* OmdbNetworkManager.h */,
 				E2C26A591FFFBB2900BFF400 /* OmdbNetworkManager.m */,
+				E262D8ED20036A8B00519876 /* OmdbApiManager.h */,
+				E262D8EE20036A8B00519876 /* OmdbApiManager.m */,
+				E262D8F020036DFE00519876 /* OmdbUtils.h */,
+				E262D8F120036DFE00519876 /* OmdbUtils.m */,
 			);
 			path = OmdbApp;
 			sourceTree = "<group>";
@@ -477,10 +487,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2CBAE601FFD004A004AB21C /* OmdbSearchController.m in Sources */,
+				E262D8F220036DFE00519876 /* OmdbUtils.m in Sources */,
 				E2CBAE6B1FFD004A004AB21C /* main.m in Sources */,
 				E2C26A5A1FFFBB2900BFF400 /* OmdbNetworkManager.m in Sources */,
 				E2C26A571FFF9FE800BFF400 /* Movie.m in Sources */,
 				E22D7F4C1FFF474B009D25CA /* OmdbMoviesListController.m in Sources */,
+				E262D8EF20036A8B00519876 /* OmdbApiManager.m in Sources */,
 				E2CBAE5D1FFD004A004AB21C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -647,6 +659,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = OmdbApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vivek.omdbApp.OmdbApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -661,6 +674,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = OmdbApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.vivek.omdbApp.OmdbApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

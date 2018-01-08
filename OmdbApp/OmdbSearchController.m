@@ -8,12 +8,12 @@
 
 #import "OmdbSearchController.h"
 #import "OmdbMoviesListController.h"
-#import "OmdbNetworkManager.h"
+#import "OmdbApiManager.h"
+#import "OmdbUtils.h"
 @interface OmdbSearchController ()
 
 @end
 
-NSString const *baseUrl = @"https://www.omdbapi.com/?apikey=d062a57d&";
 
 @implementation OmdbSearchController
 
@@ -31,19 +31,7 @@ NSString const *baseUrl = @"https://www.omdbapi.com/?apikey=d062a57d&";
     // Dispose of any resources that can be recreated.
 }
 
-- (NSString *)sanitizeSearchText:(NSString *)searchText{
-    searchText = [searchText stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSMutableArray *textButtonTextArray = [[searchText componentsSeparatedByString:@" "] mutableCopy];
-    [textButtonTextArray removeObject:@""];
-    searchText = [textButtonTextArray componentsJoinedByString:@" "];
-    return searchText;
-}
-- (NSString *)URLEncodeString: (NSString *) string {
-    static CFStringRef charset = CFSTR("!@#$%&*()+'\";:=,/?[] ");
-    CFStringRef str = (__bridge CFStringRef)string;
-    CFStringEncoding encoding = kCFStringEncodingUTF8;
-    return (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL, str, NULL, charset, encoding));
-}
+
 - (void) popUpMessage:(NSString *)msg{
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:@"Result"
@@ -68,8 +56,8 @@ NSString const *baseUrl = @"https://www.omdbapi.com/?apikey=d062a57d&";
 
 - (IBAction)searchButtonPressed:(id)sender {
     NSString *searchText = self.searchBoxContents.text;
-    [self.searchButton setTitle:@"Loading" forState:self]  ;
-    searchText = [self sanitizeSearchText:searchText];
+    self.searchBoxContents.text =@"";
+    searchText = [OmdbUtils sanitizeSearchText:searchText];
     
     if([searchText isEqualToString:@""]){
         NSLog(@"Empty String given");
@@ -79,16 +67,10 @@ NSString const *baseUrl = @"https://www.omdbapi.com/?apikey=d062a57d&";
     self.searchButton.userInteractionEnabled =NO;
     NSLog(@"Search Button pressed %@",searchText);
     
-    NSString *urlEncodedSearchText = [self URLEncodeString:searchText];
-    NSString *searchUrlStr = [NSString stringWithFormat:@"%@s=%@", baseUrl, urlEncodedSearchText];
     
     //
     
-    [OmdbApiManager getSearchResultsFor:searchUrlStr withResults:^(NSArray *moviesList){
-        
-    }];
-    //[string appendString:textButtonText];
-    [OmdbNetworkManager doGet:searchUrlStr withResponseCallback: ^(NSArray *movieList){
+    [OmdbApiManager getSearchResultsFor:searchText withResults:^(NSArray *movieList,NSError *error){
         NSLog(@"%@",movieList);
         //return movieList;
         if(movieList==nil)
@@ -104,6 +86,8 @@ NSString const *baseUrl = @"https://www.omdbapi.com/?apikey=d062a57d&";
         [self presentViewController:secondVc animated:YES completion:nil];
         NSLog(@"DONE");
     }];
+    //[string appendString:textButtonText];
+    
     self.searchButton.userInteractionEnabled =YES;
     
 }

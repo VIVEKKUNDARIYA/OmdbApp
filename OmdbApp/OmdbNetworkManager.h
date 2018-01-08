@@ -12,7 +12,6 @@
 
 @interface OmdbNetworkManager : NSObject
 
-+ (void)doGet:(NSString *)url withResponseCallback:(void (^)(NSArray *))responseHandler;
-+ (void)doGetParticularID:(NSString *)url withResponseCallback:(void (^)(NSDictionary *))responseHandler;
++ (void)doGet:(NSDictionary *)parameterDict withResponseCallback:(void (^)(NSDictionary *,NSError *))responseHandler;
 
 @end

@@ -63,21 +63,12 @@
     
     NSString *ImageURL = self.movieFinalList[indexPath.row][@"Poster"];
     
-    
-    //
-    //[cell.imageView setImageWithURL :[NSURL URLWithString: ImageURL] ];//    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]];
-   // cell.imageView.image = [UIImage imageWithData:imageData];
-    //
-    
-    //
     [cell.image setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ImageURL]] placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
         [cell.image setImage:image];
     } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-        // pass
+        
     }];
-    //
     
-    //[UIImage imageWithContentsOfURL : self.movieFinalList[indexPath.row][@"Poster"]];
     cell.outerView.layer.cornerRadius = 8;
     cell.outerView.layer.masksToBounds = YES;
     
@@ -90,13 +81,6 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    NSMutableString *string = [NSMutableString stringWithString:@"https://www.omdbapi.com/?apikey=d062a57d&i="];
-    //NSLog(@"%@",indexPath.length);
-    [string appendString:@"tt0066999"];
-    [OmdbNetworkManager doGetParticularID:string withResponseCallback: ^(NSDictionary *movieDetails){
-        NSLog(@"%@",movieDetails);
-        NSLog(@"DONE");
-    }];
     NSLog(@"Selected!");
 }
 

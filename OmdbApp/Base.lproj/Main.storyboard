@@ -93,6 +93,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OMDB" translatesAutoresizingMaskIntoConstraints="NO" id="eZS-K9-QzC">
                                                             <rect key="frame" x="30" y="19" width="60" height="90"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="X1u-Xa-CW8"/>
                                                             </constraints>
