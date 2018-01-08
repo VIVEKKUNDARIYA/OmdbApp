@@ -34,7 +34,7 @@
         NSLog(@"array: %@", movieList);
         responseHandler(movieList);
         NSLog(@"Done!");
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+    } failure:^(NSURLSessionDataTask * task, NSError *error) {
         NSLog(@"Done!");
         responseHandler(nil);
     }];
