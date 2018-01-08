@@ -62,32 +62,54 @@
     
     
     NSString *ImageURL = self.movieFinalList[indexPath.row][@"Poster"];
-    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]];
-   
-    cell.imageView.image = [UIImage imageWithData:imageData];
+    
+    
+    //
+    //[cell.imageView setImageWithURL :[NSURL URLWithString: ImageURL] ];//    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:ImageURL]];
+   // cell.imageView.image = [UIImage imageWithData:imageData];
+    //
+    
+    //
+    [cell.image setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ImageURL]] placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+        [cell.image setImage:image];
+    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+        // pass
+    }];
+    //
+    
     //[UIImage imageWithContentsOfURL : self.movieFinalList[indexPath.row][@"Poster"]];
+    cell.outerView.layer.cornerRadius = 8;
+    cell.outerView.layer.masksToBounds = YES;
     
     return cell;
 }
+
 
 - (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath{
     return NO;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSMutableString *string = [NSMutableString stringWithString:@"https://www.omdbapi.com/?apikey=d062a57d&i="];
+    //NSLog(@"%@",indexPath.length);
+    [string appendString:@"tt0066999"];
+    [OmdbNetworkManager doGetParticularID:string withResponseCallback: ^(NSDictionary *movieDetails){
+        NSLog(@"%@",movieDetails);
+        NSLog(@"DONE");
+    }];
     NSLog(@"Selected!");
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.movieFinalList count];
 }
-/*
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 180.0;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+/*- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 180.0;
 }*/
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 150.0;
+}
 @end
 
 

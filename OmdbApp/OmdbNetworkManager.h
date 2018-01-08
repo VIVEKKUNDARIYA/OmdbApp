@@ -8,8 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import <UIImageView+AFNetworking.h>
+
 @interface OmdbNetworkManager : NSObject
 
 + (void)doGet:(NSString *)url withResponseCallback:(void (^)(NSArray *))responseHandler;
++ (void)doGetParticularID:(NSString *)url withResponseCallback:(void (^)(NSDictionary *))responseHandler;
 
 @end

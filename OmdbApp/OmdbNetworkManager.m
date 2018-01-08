@@ -40,5 +40,32 @@
     }];
     
 }
++ (void)doGetParticularID:(NSString *)url withResponseCallback:(void (^)(NSDictionary *))responseHandler{
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    //
+    manager.responseSerializer = [AFJSONResponseSerializer serializerWithReadingOptions:NSJSONReadingAllowFragments];
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:
+                                                         @"application/json",
+                                                         @"text/html",
+                                                         @"text/json",
+                                                         nil];
+    [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
+    id respObject = nil;
+    [manager GET:url parameters:respObject progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSError *jsonError;
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:responseObject
+                                                             options:NSJSONReadingMutableContainers
+                                                               error:&jsonError];
+        //NSString *htmlString = [NSString stringWithUTF8String:[responseObject bytes]];
+        
+        responseHandler(json);
+        NSLog(@"Done!");
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"Done!");
+        responseHandler(nil);
+    }];
+    
+}
 
 @end

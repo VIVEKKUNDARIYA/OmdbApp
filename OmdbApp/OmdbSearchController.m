@@ -49,8 +49,26 @@
             NSLog(@"%@",movieList);
             //return movieList;
             if(movieList==nil)
-                return ;
+            {
+                UIAlertController * alert = [UIAlertController
+                                             alertControllerWithTitle:@"Movie"
+                                             message:@"No Movie Found"
+                                             preferredStyle:UIAlertControllerStyleAlert];
+                
+                
+                
             
+                
+                UIAlertAction* noButton = [UIAlertAction
+                                           actionWithTitle:@"OK"
+                                           style:UIAlertActionStyleDefault
+                                           handler:^(UIAlertAction * action) {
+                                               return;
+                                           }];
+                [alert addAction : noButton];
+                [self presentViewController:alert animated:YES completion:nil];
+                return ;
+            }
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
             
             OmdbMoviesListController *secondVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbMoviesListController"];

@@ -112,7 +112,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
-                                                    <color key="backgroundColor" red="0.2857530415058136" green="0.75447591476970244" blue="0.2857530415058136" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <accessibility key="accessibilityConfiguration">
                                                         <accessibilityTraits key="traits" notEnabled="YES"/>
                                                     </accessibility>
@@ -142,6 +142,7 @@
                                             <outlet property="image" destination="eZS-K9-QzC" id="l8c-ts-Jvv"/>
                                             <outlet property="movieTitle" destination="qoA-p5-uPr" id="1Mb-Vz-yHd"/>
                                             <outlet property="movieYear" destination="d53-yM-Eqn" id="1LY-eI-VPQ"/>
+                                            <outlet property="outerView" destination="UWF-pD-oks" id="jkw-Ul-0Co"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
