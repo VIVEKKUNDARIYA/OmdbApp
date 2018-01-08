@@ -70,7 +70,7 @@
     
     //
     
-    [OmdbApiManager getSearchResultsFor:searchText withResults:^(NSArray *movieList,NSError *error){
+    [OmdbApiManager getSearchResultsForKeywords:searchText withResults:^(NSArray *movieList,NSError *error){
         NSLog(@"%@",movieList);
         //return movieList;
         if(movieList==nil)

@@ -24,13 +24,16 @@ NSString const *baseUrl = @"https://www.omdbapi.com/?apikey=d062a57d&";
                                                          nil];
     
     [manager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
-    NSString *searchTerm;
-    if(parameterDict[@"s"])
-        searchTerm = parameterDict[@"s"];
+    NSString *urlEncodedSearchText;
+    
+    if(parameterDict[@"s"]){
+        urlEncodedSearchText = [NSString stringWithFormat:@"s=%@",[OmdbUtils URLEncodeString : parameterDict[@"s"]]];
+    }
     else if(parameterDict[@"i"])
-        searchTerm = parameterDict[@"i"];
-    NSString *urlEncodedSearchText = [OmdbUtils URLEncodeString:searchTerm];
-    NSString *searchUrlStr = [NSString stringWithFormat:@"%@s=%@", baseUrl, urlEncodedSearchText];
+    {
+        urlEncodedSearchText = [NSString stringWithFormat:@"i=%@",[OmdbUtils URLEncodeString : parameterDict[@"i"]]];
+}
+    NSString *searchUrlStr = [NSString stringWithFormat:@"%@%@", baseUrl, urlEncodedSearchText];
     
     [manager GET:searchUrlStr parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSError *jsonError;

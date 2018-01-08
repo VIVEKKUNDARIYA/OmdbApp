@@ -8,7 +8,8 @@
 
 #import "OmdbMoviesListController.h"
 #import "Movie.h"
-#import "OmdbNetworkManager.h"
+#import "OmdbApiManager.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface OmdbMoviesListController ()
 
@@ -44,8 +45,8 @@
 
 - (IBAction)backButtonPressed:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    id secondVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbSearchController"];
-    [self presentViewController:secondVc animated:YES completion:nil];
+    id firstVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbSearchController"];
+    [self presentViewController:firstVc animated:YES completion:nil];
 }
 
 
@@ -82,6 +83,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"Selected!");
+    NSString *idd =self.movieFinalList[indexPath.row][@"imdbID"];
+    [OmdbApiManager getSearchResultsForID:idd withResults:^(NSDictionary *movieDetails , NSError *error) {
+        if(error==nil)
+        {
+            NSLog(@"%@",movieDetails);
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            id thirdVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbMovieController"];
+            [self presentViewController:thirdVc animated:YES completion:nil];
+        }
+        
+    }];
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
