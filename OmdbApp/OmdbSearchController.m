@@ -30,7 +30,8 @@
 
 - (IBAction)searchButtonPressed:(id)sender {
     NSString *textButtonText = self.searchBoxContents.text;
-    
+    [self.searchButton setTitle:@"Loading" forState:self]  ;
+    self.searchButton.userInteractionEnabled =NO;
     if([textButtonText isEqualToString:@""]){
         NSLog(@"Empty String given");
     }
@@ -51,7 +52,7 @@
             if(movieList==nil)
             {
                 UIAlertController * alert = [UIAlertController
-                                             alertControllerWithTitle:@"Movie"
+                                             alertControllerWithTitle:@"Result"
                                              message:@"No Movie Found"
                                              preferredStyle:UIAlertControllerStyleAlert];
                 
@@ -83,8 +84,9 @@
         
         
         
-        
     }
+    self.searchButton.userInteractionEnabled =YES;
+    
 }
 
 @end

@@ -62,6 +62,7 @@
                     </view>
                     <connections>
                         <outlet property="searchBoxContents" destination="eqt-2R-tZ8" id="ytp-AU-x4a"/>
+                        <outlet property="searchButton" destination="OE0-sI-JuM" id="2DA-Eh-kCu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -161,7 +162,7 @@
                                     <navigationItem title="Hello" id="Mdf-h7-orX">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="VtU-bS-s1G">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="c1S-4O-uHz">
-                                                <rect key="frame" x="20" y="11" width="71" height="22"/>
+                                                <rect key="frame" x="20" y="11" width="22" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="back"/>
                                                 <connections>
