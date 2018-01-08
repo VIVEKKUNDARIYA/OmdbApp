@@ -196,20 +196,19 @@
             </objects>
             <point key="canvasLocation" x="134.78260869565219" y="943.20652173913049"/>
         </scene>
-        <!--View Controller-->
+        <!--Omdb Movie Controller-->
         <scene sceneID="zvE-FG-hoP">
             <objects>
-                <viewController storyboardIdentifier="OmdbMovieController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TDb-Qi-hAr" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="jUa-0l-2GK">
+                <viewController storyboardIdentifier="OmdbMovieController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TDb-Qi-hAr" customClass="OmdbMovieController" sceneMemberID="viewController">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="0Dr-yN-IXV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="IaO-ak-7fM"/>
-                    </view>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Ftu-CX-Ysa"/>
+                    </scrollView>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gO2-Ah-2Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="1713"/>
+            <point key="canvasLocation" x="134.78260869565219" y="1712.771739130435"/>
         </scene>
     </scenes>
     <resources>
