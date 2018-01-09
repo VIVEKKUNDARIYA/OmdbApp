@@ -7,7 +7,8 @@
 //
 
 #import "OmdbMovieController.h"
-#import "MovieDetailsTableViewCell.h"
+#import "UIImageView+AFNetworking.h"
+#import "UILabel+dynamicSizeMe.h"
 @interface OmdbMovieController ()
 
 @end
@@ -16,10 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    self.moviesDetailsTableView.delegate = self;
-    self.moviesDetailsTableView.dataSource = self;
+    NSString *ImageURL = self.movieJson[@"Poster"];
     
+    [self.backgroundImageView setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ImageURL]] placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+        [self.backgroundImageView setImage:image];
+    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -46,25 +49,7 @@
     //[self presentViewController:secondVc animated:YES completion:nil];
     NSLog(@"DONE");
 }
-- (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    static NSString *simpleTableIdentifier = @"movieDetails";
-    MovieDetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = (MovieDetailsTableViewCell *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    if(indexPath.row==0)
-    {
-        [cell.movieDetailsValue setText:@"Harry ignores warnings not to return to Hogwarts, only to find the school plagued by a series of mysterious attacks and a strange voice haunting him."];
-        [cell.movieDetailsValue resizeToFit];
-    }
-    
-    return cell;
-}
-
-- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 2;
-}
-
 
 @end
+
+     

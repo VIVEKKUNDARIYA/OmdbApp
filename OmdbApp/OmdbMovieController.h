@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OmdbMovieController : UIViewController <UITableViewDelegate, UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UITableView *moviesDetailsTableView;
+@interface OmdbMovieController : UIViewController 
 
+@property (weak, nonatomic) IBOutlet UITableView *moviesDetailsTableView;
+@property (strong,nonatomic) NSDictionary *movieJson;
 - (IBAction)backButtonPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIView *detailingView;
 
 @end

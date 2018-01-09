@@ -9,6 +9,7 @@
 #import "OmdbMoviesListController.h"
 #import "Movie.h"
 #import "OmdbApiManager.h"
+#import "OmdbMovieController.h"
 #import "UIImageView+AFNetworking.h"
 
 @interface OmdbMoviesListController ()
@@ -89,8 +90,10 @@
         {
             NSLog(@"%@",movieDetails);
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-            id thirdVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbMovieController"];
+            OmdbMovieController *thirdVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbMovieController"];
+            thirdVc.movieJson = movieDetails;
             [self presentViewController:thirdVc animated:YES completion:nil];
+           
         }
         
     }];
