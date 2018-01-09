@@ -197,18 +197,88 @@
             <point key="canvasLocation" x="134.78260869565219" y="943.20652173913049"/>
         </scene>
         <!--Omdb Movie Controller-->
-        <scene sceneID="zvE-FG-hoP">
+        <scene sceneID="Mkk-Pg-bg4">
             <objects>
-                <viewController storyboardIdentifier="OmdbMovieController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TDb-Qi-hAr" customClass="OmdbMovieController" sceneMemberID="viewController">
-                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" id="0Dr-yN-IXV">
+                <viewController storyboardIdentifier="OmdbMovieController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Pde-Sb-wII" customClass="OmdbMovieController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jPi-Xf-HMJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Ftu-CX-Ysa"/>
-                    </scrollView>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="atY-iG-kyU">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                <color key="backgroundColor" red="0.1529411765" green="0.14117647059999999" blue="0.2274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="5Cc-qW-vva"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="M4a-mB-XGW">
+                                <rect key="frame" x="0.0" y="308" width="414" height="428"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" red="1" green="0.12990993919999999" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieDetails" rowHeight="107" id="pbF-7k-DIw" customClass="MovieDetailsTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="107"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pbF-7k-DIw" id="agW-N7-oe0">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="106.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Head" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRm-Xq-nGq">
+                                                    <rect key="frame" x="10" y="10" width="394" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="yZ0-wm-zeo"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QcM-Tc-dlc">
+                                                    <rect key="frame" x="10" y="30.000000000000007" width="394" height="71.666666666666686"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="TRm-Xq-nGq" firstAttribute="leading" secondItem="agW-N7-oe0" secondAttribute="leading" constant="10" id="DXT-FF-TZX"/>
+                                                <constraint firstAttribute="bottom" secondItem="QcM-Tc-dlc" secondAttribute="bottom" constant="5" id="EY4-Wr-ogZ"/>
+                                                <constraint firstAttribute="trailing" secondItem="TRm-Xq-nGq" secondAttribute="trailing" constant="10" id="HBz-rH-IQZ"/>
+                                                <constraint firstItem="TRm-Xq-nGq" firstAttribute="top" secondItem="agW-N7-oe0" secondAttribute="top" constant="10" id="LVz-QV-k66"/>
+                                                <constraint firstItem="QcM-Tc-dlc" firstAttribute="top" secondItem="TRm-Xq-nGq" secondAttribute="top" constant="20" id="XPG-eJ-FIO"/>
+                                                <constraint firstAttribute="trailing" secondItem="QcM-Tc-dlc" secondAttribute="trailing" constant="10" id="qOj-1i-dX3"/>
+                                                <constraint firstItem="QcM-Tc-dlc" firstAttribute="leading" secondItem="agW-N7-oe0" secondAttribute="leading" constant="10" id="xNF-Z8-X34"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.8324751710580065" green="0.63128095639297388" blue="0.33725490196078434" alpha="0.67369434931506844" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="movieDetailsHeading" destination="TRm-Xq-nGq" id="r9N-Rg-31A"/>
+                                            <outlet property="movieDetailsValue" destination="QcM-Tc-dlc" id="3lu-gD-CoA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="M4a-mB-XGW" firstAttribute="leading" secondItem="jPi-Xf-HMJ" secondAttribute="leading" id="1F1-9X-8fT"/>
+                            <constraint firstItem="M4a-mB-XGW" firstAttribute="bottom" secondItem="h2U-EU-PNo" secondAttribute="bottom" id="4Dk-oi-G7O"/>
+                            <constraint firstItem="M4a-mB-XGW" firstAttribute="trailing" secondItem="atY-iG-kyU" secondAttribute="trailing" id="84L-qf-xUB"/>
+                            <constraint firstItem="M4a-mB-XGW" firstAttribute="top" secondItem="atY-iG-kyU" secondAttribute="bottom" constant="8" symbolic="YES" id="E3q-oF-5gR"/>
+                            <constraint firstItem="atY-iG-kyU" firstAttribute="top" secondItem="jPi-Xf-HMJ" secondAttribute="top" id="Xn2-2P-GEW"/>
+                            <constraint firstItem="M4a-mB-XGW" firstAttribute="leading" secondItem="atY-iG-kyU" secondAttribute="leading" id="Zt8-SK-AmT"/>
+                            <constraint firstAttribute="trailing" secondItem="M4a-mB-XGW" secondAttribute="trailing" id="a79-Z5-Wry"/>
+                            <constraint firstItem="atY-iG-kyU" firstAttribute="leading" secondItem="h2U-EU-PNo" secondAttribute="leading" id="iHg-HF-Jhf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h2U-EU-PNo"/>
+                    </view>
+                    <size key="freeformSize" width="414" height="736"/>
+                    <connections>
+                        <outlet property="moviesDetailsTableView" destination="M4a-mB-XGW" id="BPf-Mg-cLD"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gO2-Ah-2Qy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ori-ro-APY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="1712.771739130435"/>
+            <point key="canvasLocation" x="153.62318840579712" y="1789.4021739130437"/>
         </scene>
     </scenes>
     <resources>

@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface OmdbMovieController : UIViewController
+@interface OmdbMovieController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UITableView *moviesDetailsTableView;
+
 - (IBAction)backButtonPressed:(id)sender;
 
 @end

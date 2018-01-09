@@ -10,10 +10,12 @@
 		1F88E4937ED6D1A6CA8ED9C5 /* libPods-OmdbAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E456194D8310F833616DE547 /* libPods-OmdbAppTests.a */; };
 		AC6F090153CB3E1C3D91821F /* libPods-OmdbAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BC968D9A075DB42211DCA0A0 /* libPods-OmdbAppUITests.a */; };
 		B24872202BA2BB2710FB30ED /* libPods-OmdbApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A246A7D3C5BFBBF37AA5924 /* libPods-OmdbApp.a */; };
+		E22A48F72004953400AD260B /* UILabel+dynamicSizeMe.m in Sources */ = {isa = PBXBuildFile; fileRef = E22A48F52004953300AD260B /* UILabel+dynamicSizeMe.m */; };
 		E22D7F4C1FFF474B009D25CA /* OmdbMoviesListController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22D7F4B1FFF474B009D25CA /* OmdbMoviesListController.m */; };
 		E25BBC842003A763002EEC10 /* OmdbMovieController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25BBC832003A763002EEC10 /* OmdbMovieController.m */; };
 		E262D8EF20036A8B00519876 /* OmdbApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E262D8EE20036A8B00519876 /* OmdbApiManager.m */; };
 		E262D8F220036DFE00519876 /* OmdbUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E262D8F120036DFE00519876 /* OmdbUtils.m */; };
+		E269A4872004826F00AA7354 /* MovieDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E269A4862004826F00AA7354 /* MovieDetailsTableViewCell.m */; };
 		E2C26A571FFF9FE800BFF400 /* Movie.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C26A561FFF9FE800BFF400 /* Movie.m */; };
 		E2C26A5A1FFFBB2900BFF400 /* OmdbNetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C26A591FFFBB2900BFF400 /* OmdbNetworkManager.m */; };
 		E2CBAE5D1FFD004A004AB21C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CBAE5C1FFD004A004AB21C /* AppDelegate.m */; };
@@ -52,6 +54,8 @@
 		AE8BF7EAECB9A08425981601 /* Pods-OmdbAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmdbAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OmdbAppUITests/Pods-OmdbAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3CAAE6A97F84537799D1199 /* Pods-OmdbAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OmdbAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OmdbAppUITests/Pods-OmdbAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BC968D9A075DB42211DCA0A0 /* libPods-OmdbAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OmdbAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E22A48F52004953300AD260B /* UILabel+dynamicSizeMe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+dynamicSizeMe.m"; path = "../../../Downloads/1005520-6af6f216fb606f5dad4f269a8798cf6a3e56839d/UILabel+dynamicSizeMe.m"; sourceTree = "<group>"; };
+		E22A48F62004953300AD260B /* UILabel+dynamicSizeMe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+dynamicSizeMe.h"; path = "../../../Downloads/1005520-6af6f216fb606f5dad4f269a8798cf6a3e56839d/UILabel+dynamicSizeMe.h"; sourceTree = "<group>"; };
 		E22D7F4A1FFF474B009D25CA /* OmdbMoviesListController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbMoviesListController.h; sourceTree = "<group>"; };
 		E22D7F4B1FFF474B009D25CA /* OmdbMoviesListController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmdbMoviesListController.m; sourceTree = "<group>"; };
 		E25BBC822003A763002EEC10 /* OmdbMovieController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbMovieController.h; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 		E262D8EE20036A8B00519876 /* OmdbApiManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmdbApiManager.m; sourceTree = "<group>"; };
 		E262D8F020036DFE00519876 /* OmdbUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbUtils.h; sourceTree = "<group>"; };
 		E262D8F120036DFE00519876 /* OmdbUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OmdbUtils.m; sourceTree = "<group>"; };
+		E269A4852004826F00AA7354 /* MovieDetailsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MovieDetailsTableViewCell.h; sourceTree = "<group>"; };
+		E269A4862004826F00AA7354 /* MovieDetailsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MovieDetailsTableViewCell.m; sourceTree = "<group>"; };
 		E2C26A551FFF9FE800BFF400 /* Movie.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Movie.h; sourceTree = "<group>"; };
 		E2C26A561FFF9FE800BFF400 /* Movie.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Movie.m; sourceTree = "<group>"; };
 		E2C26A581FFFBB2900BFF400 /* OmdbNetworkManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OmdbNetworkManager.h; sourceTree = "<group>"; };
@@ -146,6 +152,8 @@
 		E2CBAE5A1FFD004A004AB21C /* OmdbApp */ = {
 			isa = PBXGroup;
 			children = (
+				E22A48F62004953300AD260B /* UILabel+dynamicSizeMe.h */,
+				E22A48F52004953300AD260B /* UILabel+dynamicSizeMe.m */,
 				E2CBAE5B1FFD004A004AB21C /* AppDelegate.h */,
 				E2CBAE5C1FFD004A004AB21C /* AppDelegate.m */,
 				E2CBAE5E1FFD004A004AB21C /* OmdbSearchController.h */,
@@ -167,6 +175,8 @@
 				E262D8F120036DFE00519876 /* OmdbUtils.m */,
 				E25BBC822003A763002EEC10 /* OmdbMovieController.h */,
 				E25BBC832003A763002EEC10 /* OmdbMovieController.m */,
+				E269A4852004826F00AA7354 /* MovieDetailsTableViewCell.h */,
+				E269A4862004826F00AA7354 /* MovieDetailsTableViewCell.m */,
 			);
 			path = OmdbApp;
 			sourceTree = "<group>";
@@ -491,6 +501,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E22A48F72004953400AD260B /* UILabel+dynamicSizeMe.m in Sources */,
 				E2CBAE601FFD004A004AB21C /* OmdbSearchController.m in Sources */,
 				E262D8F220036DFE00519876 /* OmdbUtils.m in Sources */,
 				E2CBAE6B1FFD004A004AB21C /* main.m in Sources */,
@@ -498,6 +509,7 @@
 				E2C26A571FFF9FE800BFF400 /* Movie.m in Sources */,
 				E22D7F4C1FFF474B009D25CA /* OmdbMoviesListController.m in Sources */,
 				E25BBC842003A763002EEC10 /* OmdbMovieController.m in Sources */,
+				E269A4872004826F00AA7354 /* MovieDetailsTableViewCell.m in Sources */,
 				E262D8EF20036A8B00519876 /* OmdbApiManager.m in Sources */,
 				E2CBAE5D1FFD004A004AB21C /* AppDelegate.m in Sources */,
 			);

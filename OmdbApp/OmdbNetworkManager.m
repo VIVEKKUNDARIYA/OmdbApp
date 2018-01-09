@@ -9,6 +9,7 @@
 #import "OmdbNetworkManager.h"
 #import <AFNetworking/AFNetworking.h>
 #import "OmdbUtils.h"
+
 NSString const *baseUrl = @"https://www.omdbapi.com/?apikey=d062a57d&";
 
 @implementation OmdbNetworkManager
