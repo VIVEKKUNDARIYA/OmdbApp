@@ -15,5 +15,11 @@
 - (IBAction)backButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIView *detailingView;
+@property (weak, nonatomic) IBOutlet UILabel *movieName;
+@property (weak, nonatomic) IBOutlet UILabel *movieIMDBRating;
+@property (weak, nonatomic) IBOutlet UILabel *timeAndGenre;
+@property (weak, nonatomic) IBOutlet UILabel *directorDetails;
+@property (weak, nonatomic) IBOutlet UILabel *releaseDate;
+@property (weak, nonatomic) IBOutlet UILabel *moviePlot;
 
 @end

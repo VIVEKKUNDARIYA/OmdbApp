@@ -23,6 +23,13 @@
         [self.backgroundImageView setImage:image];
     } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
     }];
+    [self.movieName setText:self.movieJson[@"Title"]];
+    [self.movieIMDBRating setText:[NSString stringWithFormat:@"%@/10", self.movieJson[@"imdbRating"]]];
+    [self.timeAndGenre setText:[NSString stringWithFormat:@"%@ | %@", self.movieJson[@"Runtime"],self.movieJson[@"Genre"]]];
+    [self.directorDetails setText:self.movieJson[@"Director"]];
+    [self.releaseDate setText:self.movieJson[@"Released"]];
+    [self.moviePlot setText:self.movieJson[@"Plot"]];
+    [self.moviePlot resizeToFit];
 }
 
 - (void)didReceiveMemoryWarning {
