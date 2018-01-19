@@ -8,7 +8,9 @@
 
 #import "OmdbMoviesListController.h"
 #import "Movie.h"
-#import "OmdbNetworkManager.h"
+#import "OmdbApiManager.h"
+#import "OmdbMovieController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface OmdbMoviesListController ()
 
@@ -24,13 +26,6 @@
     self.moviesListTableView.delegate = self;
     self.moviesListTableView.dataSource = self;
     //__block NSMutableArray *movieFinalList = [[NSMutableArray alloc] init];
-    [OmdbNetworkManager doGet:@"https://www.omdbapi.com/?apikey=d062a57d&s=harry" withResponseCallback: ^(NSArray *movieList){
-        NSLog(@"%@",movieList);
-        self.movieFinalList = movieList;
-        //return movieList;
-        NSLog(@"DONE");
-    }];
-    sleep(5);
     
 }
 
@@ -51,8 +46,8 @@
 
 - (IBAction)backButtonPressed:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
-    id secondVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbSearchController"];
-    [self presentViewController:secondVc animated:YES completion:nil];
+    id firstVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbSearchController"];
+    [self presentViewController:firstVc animated:YES completion:nil];
 }
 
 
@@ -64,13 +59,24 @@
     if (cell == nil) {
         cell = (Movie *)[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    NSString *movieYearStr = _movieFinalList[indexPath.row][@"Title"];
-    [cell.movieYear setText: movieYearStr];
-    [cell.movieTitle setText: movieYearStr];
+    [cell.movieYear setText: self.movieFinalList[indexPath.row][@"Year"]];
+    [cell.movieTitle setText: self.movieFinalList[indexPath.row][@"Title"]];
     
+    
+    NSString *ImageURL = self.movieFinalList[indexPath.row][@"Poster"];
+    
+    [cell.image setImageWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:ImageURL]] placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
+        [cell.image setImage:image];
+    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+        
+    }];
+    
+    cell.outerView.layer.cornerRadius = 8;
+    cell.outerView.layer.masksToBounds = YES;
     
     return cell;
 }
+
 
 - (BOOL)tableView:(UITableView *)tableView canFocusRowAtIndexPath:(NSIndexPath *)indexPath{
     return NO;
@@ -78,18 +84,31 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSLog(@"Selected!");
+    NSString *idd =self.movieFinalList[indexPath.row][@"imdbID"];
+    [OmdbApiManager getSearchResultsForID:idd withResults:^(NSDictionary *movieDetails , NSError *error) {
+        if(error==nil)
+        {
+            NSLog(@"%@",movieDetails);
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+            OmdbMovieController *thirdVc = [storyboard instantiateViewControllerWithIdentifier:@"OmdbMovieController"];
+            thirdVc.movieJson = movieDetails;
+            [self presentViewController:thirdVc animated:YES completion:nil];
+           
+        }
+        
+    }];
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.movieFinalList count];
 }
-/*
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 180.0;
-}
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+
+/*- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 180.0;
 }*/
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 150.0;
+}
 @end
 
 

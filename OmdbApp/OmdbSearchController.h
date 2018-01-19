@@ -11,6 +11,7 @@
 @interface OmdbSearchController : UIViewController
 - (IBAction)searchButtonPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *searchBoxContents;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
 
 @end
